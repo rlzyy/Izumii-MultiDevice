@@ -1,0 +1,43 @@
+{
+    "name": "izumibot",
+    "version": "1.0.0",
+    "description": "Simple WhatsApp Bot Type ESM",
+    "main": "system/index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node system/index.js"
+    },
+    "keywords": [
+        "whatsapp-bot"
+    ],
+    "author": "Irull2nd",
+    "license": "MIT", 
+    "dependencies": {
+        "@hapi/boom": "^10.0.1",
+        "@whiskeysockets/baileys": "^6.7.5",
+        "chalk": "^5.3.0",
+        "child_process": "^1.0.2",
+        "cheerio": "^1.0.0-rc.12",
+        "node-fetch": "^2.6.11",
+        "node-cron": "^3.0.3",
+        "awesome-phonenumber": "^6.9.0",
+        "archiver": "^6.0.1",
+        "chokidar": "^3.5.3",
+        "file-type": "^18.5.0",
+        "fluent-ffmpeg": "^2.1.2",
+        "glob": "^7.2.3",
+        "moment-timezone": "^0.5.43",
+        "node-webpmux": "^3.1.7",
+        "os": "^0.1.2",
+        "qrcode": "^1.5.0",
+        "qrcode-terminal": "^0.12.0",
+        "syntax-error": "^1.4.0",
+        "terminal-kit": "^3.0.1"
+    },  
+    "devDependencies": {
+        "@adiwajshing/keyed-db": "^0.2.4",
+        "axios": "^1.4.0",
+        "jimp": "^0.16.13",
+        "link-preview-js": "^3.0.4"
+    }
+}
