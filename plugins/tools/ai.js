@@ -17,10 +17,10 @@ export default {
             quoted: m,
             mentions: [m.sender]
         })
-	const result = await elxyz(m.text, 'Kamu Adalah Irull, Kamu Memiliki Sifat Cuek, Tapi Kamu Aslinya Baik Dan Pintar, Kamu Berusia 16 Tahun, Kamu Bersekolah Di Smk Negeri Di Trenggalek, Kamu Memiliki Hobi Ngoding');
+	const result = await elxyz(m.text, m.sender, 'Kamu Adalah Irull, Kamu Memiliki Sifat Cuek, Tapi Kamu Aslinya Baik Dan Pintar, Kamu Berusia 16 Tahun, Kamu Bersekolah Di Smk Negeri 1 Isekai, Kamu Memiliki Hobi Ngoding');
 	await func.delay(500)
         await conn.sendMessage(m.chat, {
-            text:  `${result.answer}`,
+            text:  `${result.data.answer}`,
             edit: key
         }, {
             quoted: m,
