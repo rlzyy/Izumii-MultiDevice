@@ -3,8 +3,10 @@
 */
 
 import fetch from "node-fetch";
+import axios from "axios";
+import crypto from "crypto";
 
-async function elxyz(q, mdl) {
+async function elxyz(q, sesi, mdl) {
     try {
     const response = await fetch('https://elxyz.me/api/chat', {
         method: 'POST',
@@ -14,7 +16,7 @@ async function elxyz(q, mdl) {
         },
         body: JSON.stringify({
         prompt: q,
-        sessionId: '-',
+        sessionId: sesi,
         character: mdl
         }),
     });
@@ -26,4 +28,42 @@ async function elxyz(q, mdl) {
     }
 }
 
-export { elxyz };
+async function blackbox(messages) {
+        try {
+        const userId = crypto.randomUUID();
+            const blackboxResponse = await fetch("https://www.blackbox.ai/api/chat", {
+                method: "POST",
+                headers: {
+                    "Accept": "*/*",
+                    "Accept-Language": "en-US,en;q=0.5",
+                    "Referer": "https://www.blackbox.ai/",
+                    "Content-Type": "application/json",
+                    "Origin": "https://www.blackbox.ai",
+                    "Alt-Used": "www.blackbox.ai"
+                },
+                body: JSON.stringify({
+                    messages,
+                    id: "chat-free",
+                    previewToken: null,
+                    userId: userId,
+                    codeModelMode: true,
+                    agentMode: {},
+                    trendingAgentMode: {},
+                    isMicMode: false,
+                    userSystemPrompt: "Realtime",
+                    maxTokens: 1024,
+                    webSearchMode: false,
+                    promptUrls: "",
+                    isChromeExt: false,
+                    githubToken: null
+                })
+            });
+
+            return await blackboxResponse.text();
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            return null;
+        }
+    }
+
+export { elxyz, blackbox };
