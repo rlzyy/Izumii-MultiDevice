@@ -7,7 +7,6 @@
 
 import "../storage/config.js"
 import { Client, Serialize } from "./lib/serialize.js"
-import { security } from "./lib/security.js"
 import pino from "pino"
 import { fileURLToPath } from "url"
 import chalk from "chalk"
@@ -32,12 +31,17 @@ import {
   pluginFilter,
 } from "./lib/plugins.js";
 
-global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({
+// Global API Update
+global.API = (name, path = "/", query = {}, apikeyqueryname) => {
+  const baseUrl = name in global.APIs ? global.APIs[name] : name;
+  const apiKey = apikeyqueryname ? global.APIKeys[baseUrl] : "";
+  const queryParams = new URLSearchParams({
     ...query,
-    ...(apikeyqueryname ? {
-        [apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name]
-    } : {})
-})) : '');
+    ...(apikeyqueryname && apiKey ? { [apikeyqueryname]: apiKey } : {}),
+  });
+
+  return baseUrl + path + (queryParams.toString() ? "?" + queryParams : "");
+};
 
 const logger = pino({
   level: "fatal",
@@ -279,7 +283,7 @@ async function start() {
 
     return conn
 }
-security()
+
 start()
 
 //—————「 Don"t change it 」—————//
