@@ -279,7 +279,7 @@ export async function participantsUpdate({ id, participants, action }) {
                         ppuser = "https://telegra.ph/file/04022fa475e4162862d8b.jpg"
 					} finally {
                         let tekswell = `Halo @${user.split("@")[0]} 👋\n\nSelamat datang di grup ${metadata.subject}! Kami senang kamu bergabung dengan kami.\n\nSaya harap kamu betah disini dan jangan lupa untuk selalu mengikuti peraturan yang ada`  
-                        let teksbye = `Selamat tinggal @${user.split("@")[0]} 👋\n\nSalam perpisahan, kami harap kamu baik-baik saja disana`
+                        let teksbye = `Sayonaraa @${user.split("@")[0]} 👋\n\nSalam perpisahan, kami harap kamu baik-baik saja disana`
 
                         if (action == "add") {
                         	conn.sendMessage(id, { image: { url: ppuser }, contextInfo: { mentionedJid: [user] }, caption: tekswell, mentions: [user] })
