@@ -12,7 +12,7 @@ export default {
 
         if (!plugin.includes(text)) return m.reply("File plugin tidak ditemukan\n\n" + plugin.map(v => " " + v).join("\n"))
 
-        func.fs.unlinkSync("command/" + text + ".js")
+        func.fs.unlinkSync("plugins/" + text + ".js")
         m.reply("File plugin " + text + " telah dihapus")
     }
 }
