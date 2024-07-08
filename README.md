@@ -21,24 +21,17 @@ npm start
 
 npm run pm2:start
 ```
-## Full access
-
-To run this script you must have IP access, by pulling a request to the IP developer database
-
-`https://raw.githubusercontent.com/Izumii44/access-ip/main/Db.json`
-
-`[
-"Your_IP"
-]`
 ## Features
 
 - Support All Hosting
 - Simple Structure
 - No Encrypt Code
-- Simple Menu
-- 56% Using Scrapper 
+- Simple Main Menu
+- 60% Using Scrapper 
 - Fast Respons
 - Free Recode
+- No Buttons
+- MultiSessions
 
 
 ## Authors
