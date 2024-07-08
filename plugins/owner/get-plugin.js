@@ -7,18 +7,17 @@ let exec = promisify(cp.exec).bind(cp)
 export default {
     command: ["gp"],
     description: "Mengambil fitur file plugins",
-    example: "",
+    example: "uhm.. where the text?\n\nexample:\n%p%cmd main/helper",
     name: "getplugins",
     tags: "owner",
 
     owner: true,
 
-    run: async(m, { conn, command, text }) => {
+    run: async(m, { conn, text }) => {
 let ar = Object.keys(plugins)
-    if (!text) throw `uhm.. where the text?\n\nexample:\n${m.prefix + command} main/helper`
     let o
     try {
-        o = await exec('cat command/' + text + '.js')
+        o = await exec('cat plugins/' + text + '.js')
     } catch (e) {
         o = e
     } finally {
@@ -26,7 +25,7 @@ let ar = Object.keys(plugins)
             stdout,
             stderr
         } = o
-        if (stdout.trim()) m.reply('Wm: @Irull2nd\n\n' + stdout)
+        if (stdout.trim()) m.reply('WM: @Irull2nd\n\n' + stdout)
         if (stderr.trim()) m.reply(stderr)
     }
     }
