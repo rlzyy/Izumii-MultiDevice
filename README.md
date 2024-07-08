@@ -45,7 +45,7 @@ npm run pm2:start
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://raw.githubusercontent.com/Izumii44/Izumii-MultiDevice/master/LICENSE)
 
 ## Feedback
 
