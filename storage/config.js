@@ -36,10 +36,10 @@ global.APIs = { // API Prefix
 	apisku: 'https://apisku.biz.id',
 	fumi: 'https://api.fumifumi.xyz',
 	neko: 'https:/nekohime.xyz',
+	akane: 'https://akane.my.id',
 	}
 global.APIKeys = { // APIKey Here
-	// 'https://website': 'apikey'
-	'https://itzpire.com': '',
+	// 'https://website': 'apikey',
 	'https://nekohime.xyz': '', //Your Apikey Nekohime API!
 }
 
