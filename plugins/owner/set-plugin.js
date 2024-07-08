@@ -10,7 +10,7 @@ export default {
 
     run: async(m, { text }) => {
         text = text.endsWith(".js") ? text.split(".js")[0] : text
-        func.fs.writeFileSync("command/" + text + ".js", m.quoted.body)
+        func.fs.writeFileSync("plugins/" + text + ".js", m.quoted.body)
         m.reply("File plugin " + text + " telah disimpan")
     }
 }
