@@ -10,7 +10,6 @@ global.wm = "@Irull2nd"
 global.author = "Irull"
 global.packname = "Created Sticker By Izumii BOT"
 global.link = "https://github.com/izumii44"
-global.databaseIP = "https://raw.githubusercontent.com/Izumii44/access-ip/main/Db.json" //Untuk Ganti IP
 
 global.owner = ["62xxxxx"]
 global.pairingNumber = "62xxxxxx" //isi dengan nomor bot mu
@@ -35,10 +34,13 @@ global.APIs = { // API Prefix
 	// name: 'https://website'
 	itzpire: 'https://itzpire.com',
 	apisku: 'https://apisku.biz.id',
+	fumi: 'https://api.fumifumi.xyz',
+	neko: 'https:/nekohime.xyz',
 	}
 global.APIKeys = { // APIKey Here
 	// 'https://website': 'apikey'
 	'https://itzpire.com': '',
+	'https://nekohime.xyz': '', //Your Apikey Nekohime API!
 }
 
 //—————「 Message settings 」—————//
