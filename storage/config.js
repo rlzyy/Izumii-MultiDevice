@@ -14,14 +14,6 @@ global.link = "https://github.com/izumii44"
 global.owner = ["62xxxxx"]
 global.pairingNumber = "62xxxxxx" //isi dengan nomor bot mu
 
-//Use Browsers.windows/ubuntu
-global.Browsers = {
-windows: ["Windows", "Chrome", "11"],
-ubuntu: ["Ubuntu", "Chrome", "20.0.04"],
-macOs: ["macOs", "Chrome", "20.0.04"],
-edge: ["Ubuntu", "Edge", "110.0.1587.56"]
-}
-
 global.prefix = /^[°•π÷×¶∆£¢€¥®™+✓_=|/~!?@#%^&.©^]/i
 global.thumbnail = fs.readFileSync("./storage/media/images.jpg")
 global.timeImage = Function.timeImage()
