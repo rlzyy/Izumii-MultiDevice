@@ -76,7 +76,7 @@ async function start() {
            creds: state.creds,
            keys: baileys.makeCacheableSignalKeyStore(state.keys, pino({ level: "fatal" }).child({ level: "fatal" })),
         },
-        browser: Browsers.windows,
+        browser: baileys.Browsers.windows("Safari"),
         markOnlineOnConnect: true,
         generateHighQualityLinkPreview: true,
         getMessage: async (key) => {
