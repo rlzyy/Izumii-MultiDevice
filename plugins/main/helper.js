@@ -80,9 +80,11 @@ export default {
         	let typemenu = global.typemenu
         	if (typemenu === 'v1') {
         	conn.sendMessage(m.chat, { text: text.trim(),
-        	    contextInfo: {
-                    mentionedJid: [m.sender],
-                    forwardedNewsletterMessageInfo: {
+        	   contextInfo: {
+                        forwardingScore: 999,
+                        isForwarded: true,
+                        mentionedJid: [m.sender],
+                        forwardedNewsletterMessageInfo: {
                             newsletterName: global.name,
                             newsletterJid: "120363294037953832@newsletter",
                         },
@@ -96,7 +98,16 @@ export default {
                         sourceUrl: link
                     }
                 }
-            }, { quoted: null })
+            }, {
+                    quoted: {
+                        key: {
+                            participant: '0@s.whatsapp.net',
+                            remoteJid: "0@s.whatsapp.net"
+                        }, message: {
+                            conversation: 'Izumii Has been verified by WhatsApp'
+                        }
+                       }
+                    })
              } else if (typemenu === 'v2') {
              conn.sendOrder(m.chat, text.trim(), fs.readFileSync('./storage/media/images.jpg'), "99999999", 10000000, m)
              }
