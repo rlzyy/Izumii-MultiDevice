@@ -15,9 +15,7 @@ npm install
 ```
 ## How To Connect To Whatsapp?
 1. Search for files in folders storage/config.js then open it.
-2. ```bash
-global.pairingNumber = "62xxx" //Change to your WA number that will be paired with the code
-```
+2. global.pairingNumber = "62xxx" //Change to your WA number that will be paired with the code
 3. Execute the command in the terminal node index.js and link the code to your WhatsApp then you're done.
 ## Running The Script
 ```bash
