@@ -1,7 +1,6 @@
 import os from "os"
 import fs from "fs"
 
-let mono = "```";
 let menu = {
 	before: `
 Hi @%user %ucapan,\nI am an automated bot system that can help you with things like downloading, AI chat, tools, etc.
@@ -11,10 +10,10 @@ Hi @%user %ucapan,\nI am an automated bot system that can help you with things l
 • Memory Used: %memory_used / %memory_free
 
 %readmore`.trimStart(),
-    header: "┌ • %category",
-    body: "│ • %cmd %isPremium %isLimit",
-    footer: "╰───────···\n",
-    after: "If you find a bug, please report it to the owner"
+    header: "*%category*",
+    body: "- %cmd",
+    footer: "\n",
+    after: "If you find a bug, please report it to the owner\n\n©Original Base By Irull2nd"
 }
 
 let tags = {
@@ -99,14 +98,7 @@ export default {
                     }
                 }
             }, {
-                    quoted: {
-                        key: {
-                            participant: '0@s.whatsapp.net',
-                            remoteJid: "0@s.whatsapp.net"
-                        }, message: {
-                            conversation: 'Izumii Has been verified by WhatsApp'
-                        }
-                       }
+                    quoted: m
                     })
              } else if (typemenu === 'v2') {
              conn.sendOrder(m.chat, text.trim(), fs.readFileSync('./storage/media/images.jpg'), "99999999", 10000000, m)
