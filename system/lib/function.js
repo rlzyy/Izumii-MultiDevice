@@ -266,6 +266,22 @@ somematch = ( data, id ) => {
 
       return `${bytes.toFixed(dp)} ${units[u]}`
    }
+   
+formatDuration(seconds) {
+  const hours = Math.floor(seconds / 3600),
+    minutes = Math.floor(seconds % 3600 / 60),
+    remainingSeconds = seconds % 60,
+    formattedDuration = [];
+  return hours > 0 && formattedDuration.push(`${hours} hour`), minutes > 0 && formattedDuration.push(`${minutes} minute`),
+    remainingSeconds > 0 && formattedDuration.push(`${remainingSeconds} second`),
+    formattedDuration.join(" ");
+}
+
+formatBytes(bytes) {
+  if (0 === bytes) return "0 B";
+  const i = Math.floor(Math.log(bytes) / Math.log(1024));
+  return `${(bytes / 1024 ** i).toFixed(2)} ${[ "B", "KB", "MB", "GB", "TB" ][i]}`;
+}
 
    async resizeImage(buffer, height) {
       buffer = (await this.getFile(buffer)).data
