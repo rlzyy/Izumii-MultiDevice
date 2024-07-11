@@ -1,6 +1,6 @@
 {
     "name": "izumibot",
-    "version": "2.0.1",
+    "version": "2.2.8",
     "description": "Simple WhatsApp Bot Type ESM",
     "main": "system/index.js",
     "type": "module",
@@ -32,7 +32,9 @@
         "qrcode": "^1.5.0",
         "qrcode-terminal": "^0.12.0",
         "syntax-error": "^1.4.0",
-        "terminal-kit": "^3.0.1"
+        "terminal-kit": "^3.0.1",
+        "yt-search": "2.11.1",
+        "ytdl-core": "github:soya-daizu/ytdl-core#sig-patch"
     },  
     "devDependencies": {
         "@adiwajshing/keyed-db": "^0.2.4",
