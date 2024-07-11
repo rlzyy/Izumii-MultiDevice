@@ -13,11 +13,12 @@ export default {
 
     owner: true,
 
-    run: async(m, { conn, text }) => {
+    run: async(m, { conn, command, text }) => {
 let ar = Object.keys(plugins)
+    
     let o
     try {
-        o = await exec('cat plugins/' + text + '.js')
+        o = await exec('cat plugins/' + m.text + '.js')
     } catch (e) {
         o = e
     } finally {
@@ -25,7 +26,7 @@ let ar = Object.keys(plugins)
             stdout,
             stderr
         } = o
-        if (stdout.trim()) m.reply('WM: @Irull2nd\n\n' + stdout)
+        if (stdout.trim()) m.reply('Wm: @Irull2nd\nSource Code Bot: https://github.com/izumii44/Izumii-MultiDevice.git\n\n' + stdout)
         if (stderr.trim()) m.reply(stderr)
     }
     }
