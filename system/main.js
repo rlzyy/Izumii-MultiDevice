@@ -42,13 +42,9 @@ global.API = (name, path = "/", query = {}, apikeyqueryname) => {
 
   return baseUrl + path + (queryParams.toString() ? "?" + queryParams : "");
 };
-
-const logger = pino({
-  level: "fatal",
-  timestamp: () => `,"time":"${new Date().toJSON()}"`,
-}).child({ level: "fatal", class: "conn" });
-
-global.store = baileys.makeInMemoryStore({ logger });
+const logger = pino({ timestamp: () => `,"time":"${new Date().toJSON()}"` }).child({ class: "irull2nd" }); logger.level = "fatal"
+global.store = baileys.makeInMemoryStore({ logger })
+if (global.write_store) store.readFromFile("./storage/store.json");
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
 const question = (text) => new Promise((resolve) => rl.question(text, resolve))
 const database = (new (await import("./lib/database.js")).default())
@@ -70,11 +66,11 @@ async function start() {
     
     const conn = baileys.default({
         msgRetryCounterMap: {},
-        logger: pino({ level: "fatal" }).child({ level: "fatal" }),
+        logger: logger,
         printQRInTerminal: false,
         auth: {
            creds: state.creds,
-           keys: baileys.makeCacheableSignalKeyStore(state.keys, pino({ level: "fatal" }).child({ level: "fatal" })),
+           keys: baileys.makeCacheableSignalKeyStore(state.keys, logger),
         },
         browser: baileys.Browsers.windows("Safari"),
         markOnlineOnConnect: true,
@@ -194,7 +190,7 @@ async function start() {
         console.log(chalk.green(`[Connected] ` + JSON.stringify(conn.user, null, 2)));
         await func.sleep(1000);
             
-            /*const currentTime = new Date();
+            const currentTime = new Date();
             const pingSpeed = new Date() - currentTime;
             const formattedPingSpeed = pingSpeed < 0 ? 'N/A' : `${pingSpeed}ms`;
             const infoMsg = `Hello ${jid.split('@')[0]}, Your WhatsApp bot is now active.\n\n*[ About the system ]*\nSpeed: ${formattedPingSpeed}\nDate:  ${currentTime.toDateString()}, ${currentTime.toLocaleDateString('id-ID', { weekday: 'long' })}\nCurrent Time: ${currentTime}`;
@@ -204,7 +200,7 @@ async function start() {
                 mentions: [owner + '@s.whatsapp.net', jid]
             }, {
                 quoted: null
-            });*/
+            });
         }
         });
 
@@ -246,7 +242,7 @@ async function start() {
     const m = await Serialize(conn, message.messages[0]);
 
     if (store.groupMetadata && Object.keys(store.groupMetadata).length === 0)
-      store.groupMetadata = await client.groupFetchAllParticipating();
+      store.groupMetadata = await conn.groupFetchAllParticipating();
 
     await (
       await import(`./handler.js?v=${Date.now()}`)
@@ -276,6 +272,12 @@ async function start() {
       console.error("Error handling presence update:", error);
     }
   });
+
+    setInterval(async () => {
+        if (global.write_store) {
+            store.writeToFile("./storage/store.json", true)
+        }
+    }, 10 * 1000)
 
     setInterval(async () => {
         if (global.db) await database.write(global.db)
