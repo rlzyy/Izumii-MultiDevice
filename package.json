@@ -1,6 +1,6 @@
 {
     "name": "izumibot",
-    "version": "2.2.8",
+    "version": "2.7.1",
     "description": "Simple WhatsApp Bot Type ESM",
     "main": "system/index.js",
     "type": "module",
@@ -8,7 +8,10 @@
         "start": "node system/index.js"
     },
     "keywords": [
-        "whatsapp-bot"
+        "whatsapp-bot",
+        "wabot",
+        "wabotaq",
+        "izumimd"
     ],
     "author": "Irull2nd",
     "license": "MIT", 
