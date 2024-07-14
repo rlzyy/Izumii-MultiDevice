@@ -3,7 +3,7 @@ import { tiktokdl } from "../../storage/script/tiktok.js";
 export default {
     command: ["tiktok"],
     description: "Mengunduh video tiktok",
-    example: "Example: %p%cmd " + "https://vt.tiktok.com/ZSYRD2xsm/",
+    example: "Example: %p%cmd <URL>",
     name: "tiktok",
     tags: "download",
 
@@ -20,14 +20,11 @@ export default {
           }})
           try {
   let data = await tiktokdl(args[0])
-  let start = Date.now();
-  let sp = (Date.now() - start) + 'ms'
-  let cap = `🍟 *Fetching* ${sp}`
   await conn.sendMessage(m.chat, {
                     video: {
                         url: data.server1.url
                     },
-                    caption: cap
+                    caption: 'Successfully downloading TikTok videos'
                 }, {
                     quoted: m
                 })
