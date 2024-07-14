@@ -2,8 +2,8 @@ import { writeExif } from '../../system/lib/sticker.js';
 import { quote } from '../../storage/script/quote.js';
 
 export default {
-	command: ["qc"],
-    description: "Membuat stiker meta",
+    command: ["qc"],
+    description: "Membuat stiker qc",
     example: "",
     name: "quote",
     tags: "convert",
