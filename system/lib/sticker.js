@@ -171,4 +171,17 @@ async function uploadFile(buffer) {
     return a.data.result
 }
 
-export { uploadFile, imageToWebp, videoToWebp, writeExif, addExif, webp2mp4File }
+async function exifAvatar(buffer, packId, wm, categories = [''], extra = {}) {
+  const { default: { Image }} = await import('node-webpmux')
+  const img = new Image()
+  const json = { 'sticker-pack-id': 'irull2nd', 'sticker-pack-name': packId, 'sticker-pack-publisher': wm, 'emojis': categories, 'is-avatar-sticker': 1, ...extra }
+  let exifAttr = Buffer.from([0x49, 0x49, 0x2A, 0x00, 0x08, 0x00, 0x00, 0x00, 0x01, 0x00, 0x41, 0x57, 0x07, 0x00, 0x00, 0x00, 0x00, 0x00, 0x16, 0x00, 0x00, 0x00])
+  let jsonBuffer = Buffer.from(JSON.stringify(json), 'utf8')
+  let exif = Buffer.concat([exifAttr, jsonBuffer])
+  exif.writeUIntLE(jsonBuffer.length, 14, 4)
+  await img.load(buffer)
+   img.exif = exif
+  return await img.save(null)
+}
+
+export { uploadFile, imageToWebp, videoToWebp, writeExif, addExif, webp2mp4File, exifAvatar }
