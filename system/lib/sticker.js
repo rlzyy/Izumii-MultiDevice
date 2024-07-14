@@ -100,7 +100,7 @@ async function writeExif(media, metadata) {
 
     if (Object.keys(metadata).length != 0) {
         const img = new webp.Image()
-        const opt = { packId: metadata?.packId ? metadata.packId : "https://nhentai.net", packName: metadata?.packName ? metadata.packName : "Stiker dibuat oleh :", packPublish: metadata?.packPublish ? metadata.packPublish : "Irull dev", packEmail: metadata?.packEmail ? metadata.packEmail : "irull2nd@gmail.com", packWebsite: metadata?.packWebsite ? metadata.packWebsite : "https://izumii.xyz", androidApp: metadata?.androidApp ? metadata.androidApp : "https://play.google.com/store/apps/details?id=com.bitsmedia.android.muslimpro", iOSApp: metadata?.iOSApp ? metadata.iOSApp : "https://apps.apple.com/id/app/muslim-pro-al-quran-adzan/id388389451?|=id", emojis: metadata?.emojis ? metadata.emojis : [], isAvatar: metadata?.isAvatar ? metadata.isAvatar : 0 }
+        const opt = { packId: metadata?.packId ? metadata.packId : "https://nhentai.net", packName: metadata?.packName ? metadata.packName : "Stickers made by:", packPublish: metadata?.packPublish ? metadata.packPublish : "@Irull2nd", packEmail: metadata?.packEmail ? metadata.packEmail : "irull2nd@gmail.com", packWebsite: metadata?.packWebsite ? metadata.packWebsite : "https://izumii.xyz", androidApp: metadata?.androidApp ? metadata.androidApp : "https://play.google.com/store/apps/details?id=com.bitsmedia.android.muslimpro", iOSApp: metadata?.iOSApp ? metadata.iOSApp : "https://apps.apple.com/id/app/muslim-pro-al-quran-adzan/id388389451?|=id", emojis: metadata?.emojis ? metadata.emojis : [], isAvatar: metadata?.isAvatar ? metadata.isAvatar : 0 }
         const json = { "sticker-pack-id": opt.packId, "sticker-pack-name": opt.packName, "sticker-pack-publisher": opt.packPublish, "sticker-pack-publisher-email": opt.packEmail, "sticker-pack-publisher-website": opt.packWebsite, "android-app-store-link": opt.androidApp, "ios-app-store-link": opt.iOSApp, "emojis": opt.emojis, "is-avatar-sticker": opt.isAvatar }
         const exifAttr = Buffer.from([0x49, 0x49, 0x2A, 0x00, 0x08, 0x00, 0x00, 0x00, 0x01, 0x00, 0x41, 0x57, 0x07, 0x00, 0x00, 0x00, 0x00, 0x00, 0x16, 0x00, 0x00, 0x00])
         const jsonBuff = Buffer.from(JSON.stringify(json), "utf-8")
@@ -156,21 +156,26 @@ async function webp2mp4File(source) {
     })
 }
 
-async function uploadFile(buffer) {
-    const form = new Func.FormData()
-    const { ext } = await fileTypeFromBuffer(buffer)
+async function uploadFile(media) {
+    return new Promise(async (resolve, reject) => {
+      let mime = await fileTypeFromBuffer(media);
+      let form = new Func.FormData();
 
-    form.append("file", buffer, await Func.getRandom(ext))
-    let a = await axios.post("https://filezone.my.id/upload", form, {
-        headers: {
-            accept: "*/*",
-            "accept-language": "en-US,en;q=0.9,id;q=0.8",
-            "content-type": `multipart/form-data; boundary=${form._boundary}`,
-        },
-    })
-    return a.data.result
-}
+      form.append("files[]", media, `file-${Date.now()}.${mime.ext}`);
 
+      axios
+        .post("https://pomf.lain.la/upload.php", form, {
+          headers: {
+            "User-Agent":
+              "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0",
+            ...form.getHeaders(),
+          },
+        })
+        .then(({ data }) => resolve(data))
+        .catch(reject);
+    });
+  }
+  
 async function exifAvatar(buffer, packId, wm, categories = [''], extra = {}) {
   const { default: { Image }} = await import('node-webpmux')
   const img = new Image()
