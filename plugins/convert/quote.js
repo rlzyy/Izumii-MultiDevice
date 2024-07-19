@@ -3,9 +3,9 @@ import { quote } from '../../storage/script/quote.js';
 
 export default {
     command: ["qc"],
-    description: "Membuat stiker qc",
+    description: "Making QC stickers",
     example: "",
-    name: "quote",
+    name: "qc",
     tags: "convert",
 
     run: async(m, { conn, command, text }) => {
