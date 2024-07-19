@@ -2,7 +2,7 @@ import fs from 'fs';
 
 export default {
     command: ["bank", "atm"],
-    description: "Cek uang kamu di atm",
+    description: "Check your money at the ATM",
     example: "",
     name: "atm",
     tags: "rpg",
@@ -11,19 +11,19 @@ export default {
 	let user = global.db.users[m.sender]
 	if (args[0] == 'create') {
 		if (user.atm > 0) {
-			m.reply(`[!] Anda sudah membuat rekening.`)
+			m.reply(`[!] You have created an account.`)
 		} else if (user.money < 50000) {
-			m.reply(`[!] Minimal memiliki 💵 50000 untuk deposit.`)
+			m.reply(`[!] At least have 💵 50000 for deposits.`)
 		} else {
 			user.money -= 50000
 			user.atm += 50000
-			m.reply(`Berhasil membuat rekening.`)
+			m.reply(`Successfully created an account.`)
 		}
 	} else {
-		if (!user) return m.reply('[!] User tidak ada dalam database.')
-		if (user.level < user.level) return m.reply('[!] Tidak dapat melihat karena level target lebih tinggi.')
+		if (!user) return m.reply('[!] The user does not exist in the database.')
+		if (user.level < user.level) return m.reply('[!] Can't see because the target level is higher.')
 		let name = await conn.getName(m.sender)
-		let anu = `🏦 Aset *${name.replaceAll('\n','')}*\n\n`
+		let anu = `🏦 Assets *${name.replaceAll('\n','')}*\n\n`
 		anu += `*💰 Bank :* ${user.atm}\n`
 		anu += `*💵 Money :* ${user.money}\n\n`
 		anu += `*👑 Gold :* ${user.gold}\n`
