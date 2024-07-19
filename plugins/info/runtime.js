@@ -1,6 +1,6 @@
 export default {
     command: ["runtime", "uptime", "rt"],
-    description: "Runtime atau Uptime bot",
+    description: "Runtime or Uptime of the bot",
     example: "",
     name: "runtime",
     tags: "info",
