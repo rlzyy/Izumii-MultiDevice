@@ -2,7 +2,7 @@ const isNumber = (x) => (x = parseInt(x), typeof x === 'number' && !isNaN(x))
 
 export default {
     command: ["join"],
-    description: "Masuk dalam group",
+    description: "Join the group",
     example: "",
     name: "join",
     tags: "group",
