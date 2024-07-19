@@ -2,7 +2,7 @@ import format from 'util';
 
 export default {
     command: ["get"],
-    description: "Mengambil data json dari website",
+    description: "Retrieve json data from websites",
     example: "",
     name: "get",
     tags: "tools",
