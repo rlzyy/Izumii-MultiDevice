@@ -1,6 +1,6 @@
 export default {
     command: ["totalfitur"],
-    description: "Menampilkan list fitur yang ada di bot",
+    description: "Displays a list of features available in the bot",
     example: "",
     name: "totalfitur",
     tags: "info",
