@@ -12,7 +12,7 @@ export default {
     user.afkReason = text || "No Reason";
 
     m.reply(
-      `${name} sedang AFK dengan alasan: ${text ? text : "tidak ada alasan"}`,
+      `${name} currently AFK for a reason: ${text ? text : "no reason"}`,
     );
   },
 };
