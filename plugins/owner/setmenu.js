@@ -1,6 +1,6 @@
 export default {
     command: ["set"],
-    description: "Mengganti type menu bot",
+    description: "Change the bot menu type",
     example: "",
     name: "set",
     tags: "owner",
