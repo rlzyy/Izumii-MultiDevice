@@ -2,7 +2,7 @@ import { createHash } from "crypto"
 
 export default {
     command: ["ceksn"],
-    description: "Melihat serial number",
+    description: "Look at the serial number",
     example: "",
     name: "ceksn",
     tags: "main",
