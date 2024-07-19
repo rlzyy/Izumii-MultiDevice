@@ -22,7 +22,7 @@ export async function before(m) {
     const timeNow = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}`;
     for (const [sholat, waktu] of Object.entries(jadwalSholat)) {
         if (timeNow === waktu) {
-            let caption = `Hai kak @${who.split`@`[0]},\nWaktu *${sholat}* telah tiba, ambilah air wudhu dan segeralah shalat🙂.\n\n*${waktu}*\n_untuk wilayah Jawatimur dan sekitarnya._`
+            let caption = `Hi bro @${who.split`@`[0]},\nTime *${sholat}* has arrived, take ablution water and immediately pray🙂.\n\n*${waktu}*\n_for the East Java region and surrounding areas._`
             this.autosholat[id] = [
                 this.reply(
                     m.chat,
