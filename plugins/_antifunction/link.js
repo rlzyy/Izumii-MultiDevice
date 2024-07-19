@@ -5,8 +5,7 @@ export async function before(m) {
 
     const chat = global.db.chats[m.chat]
     const isGroupLink = linkRegex.exec(m.body)
-    const kickMessage = "Tautan Group Terdeteksi\n\nMaaf, kami memiliki kebijakan yang melarang pengiriman tautan grup WhatsApp di grup ini. Kami berharap Anda dapat mematuhi aturan ini untuk menjaga lingkungan yang aman dan terhindar dari spam. Terima kasih atas kerjasama Anda."
-
+    const kickMessage = "Group Link Detected\n\nSorry, we have a policy that prohibits sending WhatsApp group links in this group. We hope you will comply with these rules to maintain a safe and secure environment"
     if (chat.antilink && isGroupLink && !m.isAdmin) {
         let thisGroup = "https://chat.whatsapp.com/" + await conn.groupInviteCode(m.chat)
         
