@@ -4,7 +4,7 @@ let {
 
 export default {
     command: ["rvo"],
-    description: "Melihat pesan/media 1x",
+    description: "View messages/media 1x",
     example: "",
     name: "rvo",
     tags: "tools",
