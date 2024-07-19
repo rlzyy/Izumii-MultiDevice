@@ -2,7 +2,7 @@ import { tiktokdl } from "../../storage/script/tiktok.js";
 
 export default {
     command: ["tiktok"],
-    description: "Mengunduh video tiktok",
+    description: "Download tiktok videos",
     example: "Example: %p%cmd <URL>",
     name: "tiktok",
     tags: "download",
