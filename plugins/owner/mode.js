@@ -1,8 +1,8 @@
 export default {
     command: ["self", "public"],
-    description: "Mengubah mode bot ke public & self",
+    description: "Change bot mode to public & self",
     example: "",
-    name: "mode",
+    name: "self/public",
     tags: "owner",
 
     owner: true,
