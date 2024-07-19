@@ -1,6 +1,6 @@
 export default {
     command: ["s", "sticker", "sticker"],
-    description: "Membuat stiker",
+    description: "Make WhatsApp stickers",
     example: "",
     name: "sticker",
     tags: "convert",
