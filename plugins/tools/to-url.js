@@ -2,7 +2,7 @@ import { uploadFile } from "../../system/lib/sticker.js"
 
 export default {
     command: ["tourl", "tolink"],
-    description: "Mengubah gambar, video, webp dan audio menjadi url",
+    description: "Convert images, videos, webp and audio into urls",
     example: "",
     name: "tourl",
     tags: "tools",
