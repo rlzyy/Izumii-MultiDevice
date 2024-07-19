@@ -8,7 +8,7 @@ const cooldown = 86400000
 
 export default {
     command: ["claim", "daily"],
-    description: "Claim hadiah harianmu disini",
+    description: "Claim your daily prize here",
     example: "",
     name: "daily",
     tags: "rpg",
