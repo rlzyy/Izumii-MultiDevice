@@ -1,6 +1,6 @@
 export default {
     command: ["banchat"],
-    description: "Banchat chat di group",
+    description: "Banchat chat in the group",
     example: "",
     name: "banchat",
     tags: "owner",
