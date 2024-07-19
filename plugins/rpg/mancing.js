@@ -3,7 +3,7 @@ const cooldownn = 180000
 
 export default {
     command: ["mancing"],
-    description: "Ngapain? mending mancing",
+    description: "What are you doing? better fishing",
     example: "",
     name: "mancing",
     tags: "rpg",
@@ -12,8 +12,8 @@ export default {
     run: async(m, { conn, command, args }) => {
 
 	let user = global.db.users[m.sender]
-	if (new Date - user.lastfishing <= cooldown) return m.reply(`📍 Anda sudah memancing, selanjutnya dapat dilakukan dalam  . . .\n🕖 *${((user.lastfishing + cooldown) - new Date()).toTimeString()}*`)
-	if (user.fishingrod == 0) return m.reply(`Perlu *${m.prefix}craft* fishingrod terlebih dahulu.\n\nAnda memiliki :\n━ 🎣 ${user.fishingrod} FishingRod`)
+	if (new Date - user.lastfishing <= cooldown) return m.reply(`📍 You've fished, then you can do it in  . . .\n🕖 *${((user.lastfishing + cooldown) - new Date()).toTimeString()}*`)
+	if (user.fishingrod == 0) return m.reply(`Need *${m.prefix}craft* fishingrod first.\n\nYou have :\n━ 🎣 ${user.fishingrod} FishingRod`)
 	let mancing = [
 		{"ikan": 0}, {"ikan": 0}, {"ikan": 0}, {"ikan": 0}, {"ikan": 0}, {"ikan": 0},
 		{"ikan": 0}, {"ikan": 0}, {"ikan": 0}, {"ikan": 0}, {"ikan": 0}, {"ikan": 0}, {"ikan": 0}
@@ -25,7 +25,7 @@ export default {
 	}
 
 	let gmbrt = 'https://telegra.ph/file/4a2dad6f0f6dfef650bf3.jpg'
-	let hsl = `[ *Mancing Selesai* ]\nHasil tangkapan hari ini :
+	let hsl = `[ *Fishing Completed* ]\nToday's catch:
 
  *🐋 = [ ${mancing[0].ikan} ]*			 *🐡 = [ ${mancing[6].ikan} ]*
  *🐳 = [ ${mancing[1].ikan} ]*			 *🐠 = [ ${mancing[7].ikan} ]*
@@ -59,7 +59,7 @@ export default {
 	}, cooldownn)
 					 
 	setTimeout(() => {
-		m.reply('_Sedang memancing..._')
+		m.reply('_Im fishing..._')
 	}, 0)
 	user.lastfishing = new Date * 1
 	user.mancingcount += 1
