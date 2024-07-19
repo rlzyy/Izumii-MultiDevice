@@ -4,7 +4,7 @@ function pickRandom(list) {
 
 export default {
     command: ["cekkodam", "cekkhodam"],
-    description: "Check khodam kamu",
+    description: "Check your khodam",
     example: "",
     name: "Khodam",
     tags: "rpg",
