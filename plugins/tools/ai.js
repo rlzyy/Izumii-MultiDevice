@@ -2,7 +2,7 @@ import { elxyz } from "../../storage/script/ai.js";
 
 export default {
     command: ["ai"],
-    description: "Mengobrol dengan Elxyz AI",
+    description: "Chat with Elxyz AI",
     example: "Example: %p%cmd Hallo",
     name: "ai",
     tags: "tools",
