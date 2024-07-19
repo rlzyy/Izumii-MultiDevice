@@ -1,6 +1,6 @@
 export default {
   command: ["instagram", "ig"],
-  description: "Download Instagram video/image",
+  description: "Download Instagram videos/images",
   example: "Example: %p%cmd <URL>",
   name: "instagram",
   tags: "download",
