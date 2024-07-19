@@ -8,7 +8,7 @@ const cooldown = 900000
 
 export default {
     command: ["adventure", "berpetualang", "mulung"],
-    description: "Berpetualang untuk mendapatkan item random",
+    description: "Go on an adventure to get random items",
     example: "",
     name: "adventure",
     tags: "rpg",
@@ -17,8 +17,8 @@ export default {
     run: async(m, { conn, command, args }) => {
 	let user = global.db.users[m.sender]
 	let timers = (cooldown - (new Date - user.lastadventure))
-	if (user.health < 80) return m.reply(`Butuh minimal *❤️ 80 Health* untuk ${command}!!\n\nKetik *${m.prefix}heal* untuk menambah health.\nAtau *${m.prefix}use potion* untuk menggunakan potion.`)
-	if (new Date - user.lastadventure <= cooldown) return m.reply(`Kamu sudah berpetualang, mohon tunggu beberapa menit lagi..`)
+	if (user.health < 80) return m.reply(`Minimum required *❤️ 80 Health* For ${command}!!\n\nType *${m.prefix}heal* to increase health.\nOr *${m.prefix}use potion* to use potions.`)
+	if (new Date - user.lastadventure <= cooldown) return m.reply(`You've had an adventure, please wait a few more minutes..`)
 
 	user.adventurecount += 1
 
@@ -46,18 +46,18 @@ export default {
 	if (user.adventurecount % 150 == 0) user.emerald += emerald
 	if (user.adventurecount % 400 == 0) user.diamond += diamond
 
-	let txt = `[ *Selesai ${command}* ]\n\n`
-	txt += `*❤️ health : -${health}*\nAnda membawa pulang :\n`
+	let txt = `[ *Finished ${command}* ]\n\n`
+	txt += `*❤️ health : -${health}*\nYou take it home :\n`
 	txt += `*💵 money :* ${money}\n`
 	txt += `*✉️ exp :* ${exp}\n`
 	txt += `*🗑 trash :* ${trash}\n`
 	txt += `*🪨 rock :* ${rock}\n`
 	txt += `*🪵 wood :* ${wood}\n`
 	txt += `*🕸️ string :* ${string}`
-	if (user.adventurecount % 25  == 0) txt += `\n\nBonus adventure ${user.adventurecount} kali\n*📦 common :* ${common}`
-	if (user.adventurecount % 50  == 0) txt += `\n\nBonus adventure ${user.adventurecount} kali\n*👑 gold :* ${gold}`
-	if (user.adventurecount % 150 == 0) txt += `\n\nBonus adventure ${user.adventurecount} kali\n*💚 emerald :* ${emerald}`
-	if (user.adventurecount % 400 == 0) txt += `\n\nBonus adventure ${user.adventurecount} kali\n*💎 diamond :* ${diamond}`
+	if (user.adventurecount % 25  == 0) txt += `\n\nBonus adventure ${user.adventurecount} x\n*📦 common :* ${common}`
+	if (user.adventurecount % 50  == 0) txt += `\n\nBonus adventure ${user.adventurecount} x\n*👑 gold :* ${gold}`
+	if (user.adventurecount % 150 == 0) txt += `\n\nBonus adventure ${user.adventurecount} x\n*💚 emerald :* ${emerald}`
+	if (user.adventurecount % 400 == 0) txt += `\n\nBonus adventure ${user.adventurecount} x\n*💎 diamond :* ${diamond}`
 	m.reply(txt)
 	user.lastadventure = new Date * 1
 }
