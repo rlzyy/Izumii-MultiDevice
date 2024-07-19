@@ -8,12 +8,12 @@ function clockString(ms) {
     let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24;
     let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
     let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
-    return ['\n*' + d + '* _Hari_ ☀️\n ', '*' + h + '* _Jam_ 🕐\n ', '*' + m + '* _Menit_ ⏰\n ', '*' + s + '* _Detik_ ⏱️ '].map(v => v.toString().padStart(2, 0)).join('');
+    return ['\n*' + d + '* _Day_ ☀️\n ', '*' + h + '* _Clock_ 🕐\n ', '*' + m + '* _Minute_ ⏰\n ', '*' + s + '* _Second_ ⏱️ '].map(v => v.toString().padStart(2, 0)).join('');
 }
 
 export default {
     command: ["bansos"],
-    description: "Bansos untuk masyarakat miskin",
+    description: "Social assistance for the poor",
     example: "",
     name: "bansos",
     tags: "rpg",
@@ -31,17 +31,17 @@ export default {
 
         if (t > 300000) {
             if (A > K) {
-                conn.reply(m.chat, `*Kamu Tertangkap!* Korupsi dana bansos 🕴️💰, Denda *3 Juta* rupiah 💵`, m);
+                conn.reply(m.chat, `*You're Caught!* Corruption of social assistance funds 🕴️💰, Fine *3 Million* rupiah 💵`, m);
                 u.money -= 3000000;
                 u.lastbansos = new Date * 1;
             } else if (A < K) {
                 u.money += 3000000;
-                conn.reply(m.chat, `*Berhasil Korupsi!* Dana bansos 🕴️💰, Dapatkan *3 Juta* rupiah 💵`, m);
+                conn.reply(m.chat, `*Successful Corruption!* Social assistance funds 🕴️💰, Get *3 Million* rupiah 💵`, m);
                 u.lastbansos = new Date * 1;
             } else {
-                conn.reply(m.chat, `*Maaf!* Kamu tidak berhasil melakukan korupsi bansos dan kamu tidak akan masuk penjara karena kamu *melarikan diri* 🏃`, m);
+                conn.reply(m.chat, `*Sorry!* You didn't succeed in committing social assistance corruption and you won't go to prison because you *ran away* 🏃`, m);
                 u.lastbansos = new Date * 1;
             }
-        } else conn.reply(m.chat, `*Sudah Melakukan Korupsi!* 💰\nHarus menunggu selama agar bisa korupsi bansos kembali\n▸ 🕓 ${timers}`, m);
+        } else conn.reply(m.chat, `*You've committed corruption!* 💰\nYou have to wait as long as you can to corrupt social assistance again\n▸ 🕓 ${timers}`, m);
     }
 }
