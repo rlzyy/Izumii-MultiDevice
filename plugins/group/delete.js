@@ -1,11 +1,12 @@
 export default {
     command: ["del"],
-    description: "Afk dalam group",
+    description: "Delete group messages",
     example: "",
-    name: "afk",
+    name: "del",
     tags: "group",
 
     group: true,
+    admin: true,
 
     run: async(m, { conn, text, isAdmin, isBotAdmin }) => {
         if (!m.quoted) throw '*reply the message you want to delete.*'
