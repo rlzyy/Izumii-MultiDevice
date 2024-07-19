@@ -1,6 +1,6 @@
 export default {
     command: ["sc", "source", "script"],
-    description: "Source code bot",
+    description: "Bot source code",
     example: "",
     name: "script",
     tags: "info",
