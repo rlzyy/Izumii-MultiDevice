@@ -2,7 +2,7 @@ export async function before(m) {
     if (m.chat.endsWith("broadcast") || m.fromMe || m.isGroup || m.isCommand) return
 
     let user = db.users[m.sender]
-    let txt = `Waduh, akhirnya kamu nyasar ke sini juga! Tenang, ${global.name} nggak gigit, kok. Malah, aku bakal kasih banyak info dan kemudahan. Gak percaya? Coba deh ketik .menu`
+    let txt = `Wow, you finally strayed here too! Calm, ${global.name} I don't bite, okay? In fact, I will give you lots of information and convenience. Do not believe? Try typing .menu`
 
     if (new Date() - user.firstchat < 21600000) return
 
