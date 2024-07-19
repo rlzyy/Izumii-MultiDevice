@@ -2,7 +2,7 @@ import { createHash } from "crypto"
 
 export default {
     command: ["unreg", "unregister"],
-    description: "Menghapus akunmu pada bot",
+    description: "Deleting your account on the bot database",
     example: "Example: %p%cmd sn",
     name: "unreg",
     tags: "main",
@@ -13,8 +13,8 @@ export default {
         let user = db.users[m.sender]
         let sn = createHash("md5").update(m.sender).digest("hex")
 
-        if (args[0] !== sn) return m.reply("Serial number salah, silahkan cek serial number mu dengan mengetik *.ceksn*")
-        m.reply("Unregister berhasil sekarang data anda sudah dihapus")
+        if (args[0] !== sn) return m.reply("Incorrect serial number, please check your serial number by typing *.ceksn*")
+        m.reply("Unregister was successful, now your data has been deleted")
         user.age = 0
         user.name = ""
         user.regTime = -1
