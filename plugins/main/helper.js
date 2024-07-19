@@ -33,7 +33,7 @@ function pickRandom(list) {
 
 export default {
     command: ["menu", "help"],
-    description: "Untuk menampilkan menu berdasarkan daftar, dan melihat cara menggunakan menu",
+    description: "To display a menu based on a list, and see how to use the menu",
     example: "",
     name: "menu",
     tags: "main",
