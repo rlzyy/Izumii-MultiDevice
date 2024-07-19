@@ -1,6 +1,6 @@
 export default {
     command: ["df"],
-    description: "Menghapus file plugin dari direktori command",
+    description: "Remove plugin files from command directory",
     example: "Example: %p%cmd owner/add",
     name: "df",
     tags: "owner",
@@ -10,9 +10,9 @@ export default {
     run: async(m, { text }) => {
         let plugin = Object.keys(plugins).map(v => v.replace(/.js/g, "").split("command/")[1])
 
-        if (!plugin.includes(text)) return m.reply("File plugin tidak ditemukan\n\n" + plugin.map(v => " " + v).join("\n"))
+        if (!plugin.includes(text)) return m.reply("Plugin file not found\n\n" + plugin.map(v => " " + v).join("\n"))
 
         func.fs.unlinkSync("plugins/" + text + ".js")
-        m.reply("File plugin " + text + " telah dihapus")
+        m.reply("Plugin files " + text + " was removed")
     }
 }
