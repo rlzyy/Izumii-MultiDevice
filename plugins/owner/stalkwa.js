@@ -7,7 +7,7 @@ let regionNames = new Intl.DisplayNames(['en'], {
 
 export default {
     command: ["stalkwa"],
-    description: "stalking user whatsapp",
+    description: "stalking WhatsApp users",
     example: "",
     name: "stalkwa",
     tags: "owner",
