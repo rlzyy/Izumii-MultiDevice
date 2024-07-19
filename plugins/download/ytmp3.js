@@ -2,7 +2,7 @@ import { ytmp3 } from "../../storage/script/yt-core.js";
 
 export default {
     command: ["ytmp3"],
-    description: "Mengunduh audio youtube",
+    description: "Download youtube audio with mp3 converter",
     example: "Example: %p%cmd <Url>",
     name: "ytmp3",
     tags: "download",
@@ -12,7 +12,7 @@ export default {
     run: async(m, { conn, text }) => {
     try {
         let Ytdl = await ytmp3(m.text)
-        let dls = "Download audio succes"
+        let dls = "Download audio success"
         let ytthumb = await (await func.getFile(Ytdl.meta.image)).data
         let doc = {
             audio: Ytdl.buffer,
