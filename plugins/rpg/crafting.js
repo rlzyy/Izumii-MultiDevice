@@ -10,7 +10,7 @@ function isNumber(number) {
 
 export default {
     command: ["craft"],
-    description: "Crafting item kamu",
+    description: "Crafting your items",
     example: "",
     name: "craft",
     tags: "rpg",
