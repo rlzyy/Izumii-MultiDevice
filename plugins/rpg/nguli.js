@@ -1,6 +1,6 @@
 export default {
     command: ["nguli", "punch"],
-    description: "Bekerja menjadi kuli",
+    description: "Work as a coolie",
     example: "",
     name: "nguli",
     tags: "rpg",
