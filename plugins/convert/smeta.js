@@ -2,7 +2,7 @@ import { exifAvatar } from '../../system/lib/sticker.js';
 
 export default {
 	command: ["smeta"],
-    description: "Membuat stiker meta",
+    description: "Create meta stickers",
     example: "",
     name: "smeta",
     tags: "convert",
