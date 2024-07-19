@@ -5,9 +5,9 @@ import {
 
 export default {
     command: ["ytplay", "play"],
-    description: "Mencari audio youtube",
+    description: "Search for YouTube audio/video",
     example: "",
-    name: "ytplay",
+    name: "play",
     tags: "download",
 
     limit: true,
