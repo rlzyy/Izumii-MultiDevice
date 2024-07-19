@@ -1,6 +1,6 @@
 export default {
     command: ["onread", "offread"],
-    description: "Centang 2",
+    description: "Check 2",
     example: "",
     name: "autoread",
     tags: "owner",
