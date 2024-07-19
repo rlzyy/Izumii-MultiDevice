@@ -2,7 +2,7 @@ import fs from 'fs';
 
 export default {
     command: ["clearsesi", "clr"],
-    description: "Banchat chat in the group",
+    description: "Clearing bot session cache",
     example: "",
     name: "clearsesi",
     tags: "owner",
