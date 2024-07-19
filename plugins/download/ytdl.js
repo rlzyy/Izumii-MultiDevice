@@ -2,7 +2,7 @@ import { ytmp4 } from "../../storage/script/yt-core.js";
 
 export default {
     command: ["ytdl"],
-    description: "Mengunduh video youtube",
+    description: "Downloading youtube videos",
     example: "Example: %p%cmd <Url>",
     name: "ytdl",
     tags: "download",
@@ -25,7 +25,7 @@ export default {
     ⚘ *Channel* : ${cenel}
     ⚘ *publish* : ${publish}
     ⚘ *views* : ${view}
-    ⚘ *Resolusi* : 360p
+    ⚘ *Resolution* : 360p
     ⚘ *Url* : ${text}
         `
 
