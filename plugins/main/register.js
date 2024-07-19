@@ -2,9 +2,9 @@ import { createHash } from "crypto"
 
 export default {
     command: ["daftar", "register", "registrasi"],
-    description: "Mendaftar untuk bisa menggunakan menu",
-    example: "Example: %p%cmd rul 19",
-    name: "daftar",
+    description: "Register to be able to use the menu",
+    example: "",
+    name: "register",
     tags: "main",
 
     run: async(m, { conn, text }) => {
@@ -14,13 +14,13 @@ export default {
         if (!data[0]) return m.reply(`Example: ${m.prefix + m.command} izumii 16`)
         let name = data.input.split(data[0])[0].trim(), sn = createHash("md5").update(m.sender).digest("hex")
 
-        if (user.registered) return m.reply("Kamu sudah terdaftar, mau daftar ulang? Ketik .unreg [sn]")
-        if (equality.includes(name)) return m.reply("Username sudah dipakai, coba untuk menambahkan angka atau karakter spesial")
+        if (user.registered) return m.reply("You are already registered, do you want to re-register? Type .unreg [sn]")
+        if (equality.includes(name)) return m.reply("Username is already in use, try adding numbers or special characters")
 
         user.name = name
         user.age = data[0]
         user.registered = true
         user.regTime = +new Date;
-        m.reply(`Selamat registrasi telah berhasil!\n\n• *Name:* ${name}\n• *Umur:* ${data[0]}\n• *Serial Number:* ${sn}\n\nTerimakasih sudah melakukan registrasi. Kamu bisa cek profile mu dengan mengetik *.profile*`)
+        m.reply(`Congratulations, registration has been successful!\n\n• *Name:* ${name}\n• *Age:* ${data[0]}\n• *Serial Number:* ${sn}\n\nThank you for registering. You can check your profile by typing *.profile*`)
     }
 }
