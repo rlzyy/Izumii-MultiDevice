@@ -1,17 +1,17 @@
 export function before(m, { conn }) {
   let user = global.db.users[m.sender];
 
-  // Mengakhiri status AFK saat mengirim pesan
+  // Ends AFK status when sending a message
   if (user.afk > -1) {
     m.reply(`
-Anda telah berhenti AFK${user.afkReason ? " setelah " + user.afkReason : ""}
-Selama ${((new Date() - user.afk) / 1000 / 60).toFixed(1)} menit
+You have stopped AFK${user.afkReason ? " after " + user.afkReason : ""}
+Selama ${((new Date() - user.afk) / 1000 / 60).toFixed(1)} minute
         `);
     user.afk = -1;
     user.afkReason = "";
   }
 
-  // Memeriksa apakah pengguna yang ditandai sedang AFK
+  // Checks if the flagged user is AFK
   let jids = [
     ...new Set([
       ...(m.mentionedJid || []),
@@ -25,9 +25,9 @@ Selama ${((new Date() - user.afk) / 1000 / 60).toFixed(1)} menit
     if (!afkTime || afkTime < 0) continue;
     let reason = mentionedUser.afkReason || "";
     m.reply(`
-Jangan tag dia!
-Dia sedang AFK ${reason ? "dengan alasan " + reason : "tanpa alasan"}
-Selama ${((new Date() - afkTime) / 1000 / 60).toFixed(1)} menit
+Don't tag him!
+He's AFK ${reason ? "with reason " + reason : "no reason"}
+During ${((new Date() - afkTime) / 1000 / 60).toFixed(1)} minute
         `);
   }
   return true;
