@@ -1,6 +1,6 @@
 export default {
     command: ["owner", "creator"],
-    description: "Nomor owner atau creator yang membuat bot ini",
+    description: "Number of the owner or creator who created this bot",
     example: "",
     name: "owner",
     tags: "info",
