@@ -3,7 +3,7 @@ import { performance } from "perf_hooks"
 
 export default {
     command: ["ping", "speed"],
-    description: "Mengetest kecepatan respon bot",
+    description: "Test the bot's response speed",
     example: "",
     name: "ping",
     tags: "info",
