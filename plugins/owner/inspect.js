@@ -1,6 +1,6 @@
 export default {
     command: ["inspect"],
-    description: "Menampilkan informasi dari media",
+    description: "Inspect media newsletter channels",
     example: "",
     name: "inspect",
     tags: "tools",
