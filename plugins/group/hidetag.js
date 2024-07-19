@@ -1,7 +1,7 @@
 export default {
     command: ["hidetag"],
-    description: "Mentag semua member digrup",
-    example: "Example: %p%cmd hidetag woi",
+    description: "Tag all members in the group",
+    example: "Example: %p%cmd hidetag everyone",
     name: "hidetag",
     tags: "group",
 
@@ -14,7 +14,7 @@ export default {
     "participants":"0@s.whatsapp.net",
 		"remoteJid": "status@broadcast",
 		"fromMe": false,
-		"id": "Halo"
+		"id": "Hi!!"
 	},
 	"message": {
 		"contactMessage": {
