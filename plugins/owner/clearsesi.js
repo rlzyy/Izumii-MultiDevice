@@ -2,7 +2,7 @@ import fs from 'fs';
 
 export default {
     command: ["clearsesi", "clr"],
-    description: "Banchat chat di group",
+    description: "Banchat chat in the group",
     example: "",
     name: "clearsesi",
     tags: "owner",
@@ -19,7 +19,7 @@ export default {
 			  item.startsWith("sender-key") || item.startsWith("session-") || item.startsWith("app-state")
 			)
 			console.log(filteredArray.length);
-			let teks = `Terdeteksi ${filteredArray.length} junk files\n\n`
+			let teks = `Detected ${filteredArray.length} junk files\n\n`
 			if (filteredArray.length == 0) return newReply(teks)
 			filteredArray.map(function(e, i) {
 				teks += (i + 1) + `. ${e}\n`
