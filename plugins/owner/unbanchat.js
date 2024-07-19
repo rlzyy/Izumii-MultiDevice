@@ -1,6 +1,6 @@
 export default {
     command: ["unbanchat"],
-    description: "Unbanned chat di group",
+    description: "Unbanned chat in groups",
     example: "",
     name: "unbanchat",
     tags: "owner",
