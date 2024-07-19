@@ -1,7 +1,7 @@
 export default {
     command: ["gitclone", "git"],
-    description: "Mengunduh file dari github",
-    example: "Example: %p%cmd " + link + "/legacyv3",
+    description: "Downloading the repository file from github",
+    example: "Example: %p%cmd " + link + "/izumii-multidevice",
     name: "gitclone",
     tags: "download",
 
