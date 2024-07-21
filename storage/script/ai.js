@@ -66,4 +66,31 @@ async function blackbox(messages) {
         }
     }
 
-export { elxyz, blackbox };
+async function gpt4 (q) {
+let res = await axios({
+method: "POST",
+url: "https://omniplex.ai/api/chat",
+data: {
+"frequency_penalty": 0,
+"max_tokens": 512,
+"messages": [
+{
+"role": "user",
+"content": q,
+}
+],
+"model": "gpt-4o",
+"presence_penalty": 0,
+"temperature": 1,
+"top_p": 1
+},
+headers: {
+"User-Agent": "okhttp/4.9.0",
+"Referer": "https://omniplex.ai/",
+"Origin": "https://omniplex.ai"
+}
+})
+return res.data;
+}
+
+export { elxyz, blackbox, gpt4 };
