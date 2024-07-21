@@ -6,7 +6,7 @@ let exec = promisify(cp.exec).bind(cp)
 
 export default {
     command: ["gp"],
-    description: "Mengambil fitur file plugins",
+    description: "Retrieve plugins file features",
     example: "uhm.. where the text?\n\nexample:\n%p%cmd main/helper",
     name: "getplugins",
     tags: "owner",
