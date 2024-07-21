@@ -13,7 +13,7 @@ Hi @%user %ucapan,\nI am an automated bot system that can help you with things l
     header: "```[ %category ]```",
     body: "%cmd\n> %description",
     footer: "\n",
-    after: "If you find a bug, please report it to the owner\n\n©Original Base By Irull2nd"
+    after: "If you find a bug, please report it to the owner"
 }
 
 let tags = {
