@@ -10,8 +10,8 @@ Hi @%user %ucapan,\nI am an automated bot system that can help you with things l
 • Memory Used: %memory_used / %memory_free
 
 %readmore`.trimStart(),
-    header: "*%category*",
-    body: "- %cmd",
+    header: "```[ %category ]```",
+    body: "%cmd\n> %description",
     footer: "\n",
     after: "If you find a bug, please report it to the owner\n\n©Original Base By Irull2nd"
 }
@@ -60,9 +60,10 @@ export default {
             let { level, limit, name, premium, money } = db.users[m.sender]
         	let help = Object.values(plugins).map(plugin => {
         		return {
-        			cmd: plugin.command,
+        			cmd: Array.isArray(plugin.name) ? plugin.name : [plugin.name],
         			tags: [plugin.tags],
         			limit: plugin.limit,
+        			description: plugin.description,
         			premium: plugin.premium
         		}
         	})
@@ -70,7 +71,7 @@ export default {
         	let text = [menu.before, ...Object.keys(tags).map(tag => {
         		return menu.header.replace(/%category/g, tags[tag]) + "\n" + [...help.filter(aa => aa.tags.includes(tag) && aa.cmd).map(a => {
         			return a.cmd.map(help => {
-        				return menu.body.replace(/%cmd/g, m.prefix + help).replace(/%isLimit/g, a.limit ? "(Limit)" : "").replace(/%isPremium/g, a.premium ? "(Premium)" : "").trim()
+        				return menu.body.replace(/%cmd/g, m.prefix + help).replace(/%description/g, a.description).replace(/%isLimit/g, a.limit ? "(Limit)" : "").replace(/%isPremium/g, a.premium ? "(Premium)" : "").trim()
         			}).join("\n")
         		}), menu.footer].join("\n")
         	}), menu.after].join("\n")
