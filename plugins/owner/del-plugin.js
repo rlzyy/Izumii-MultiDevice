@@ -8,7 +8,7 @@ export default {
     owner: true,
 
     run: async(m, { text }) => {
-        let plugin = Object.keys(plugins).map(v => v.replace(/.js/g, "").split("command/")[1])
+        let plugin = Object.keys(plugins).map(v => v.replace(/.js/g, "").split("plugins/")[1])
 
         if (!plugin.includes(text)) return m.reply("Plugin file not found\n\n" + plugin.map(v => " " + v).join("\n"))
 
