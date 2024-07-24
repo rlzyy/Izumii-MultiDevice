@@ -5,6 +5,8 @@ export default {
     name: "nguli",
     tags: "rpg",
 
+    register: true,
+
     run: async(m, { conn, command, args }) => {
 	const user = global.db.users[m.sender];
   switch (command) {
