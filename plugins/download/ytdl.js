@@ -1,4 +1,4 @@
-import { ytmp4 } from "../../storage/script/yt-core.js";
+import xyz from "@xyzteams/scapers";
 
 export default {
     command: ["ytdl"],
@@ -11,22 +11,17 @@ export default {
 
     run: async(m, { conn, text }) => {
     try {
-        let Ytdl = await ytmp4(m.text)
+        let Ytdl = await xyz.download.youtube(m.text)
         const video = Ytdl.url
         const title = Ytdl.title
-        const duration = Ytdl.duration
-        const cenel = Ytdl.channel
-        const publish = Ytdl.published
-        const view = Ytdl.views
+        const duration = Ytdl.duration.formatted
         const cap = `
-         乂 *Y T  M P 4*
+         *[ Y T  M P 4 ]*
     
-    ⚘ *Title* : ${title}
-    ⚘ *Channel* : ${cenel}
-    ⚘ *publish* : ${publish}
-    ⚘ *views* : ${view}
-    ⚘ *Resolution* : 360p
-    ⚘ *Url* : ${text}
+    - *Title* : ${title}
+    - *Duration*: ${duration}
+    - *Resolution* : 360p
+    - *Url* : ${text}
         `
 
         await conn.sendMessage(m.chat,  { video: { url: video }, caption: cap, mimetype: "video/mp4", fileName: title, contextInfo: { externalAdReply: { showAdAttribution: true, mediaType: 2} }
