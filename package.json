@@ -18,6 +18,7 @@
     "dependencies": {
         "@hapi/boom": "^10.0.1",
         "@whiskeysockets/baileys": "^6.7.5",
+        "@xyzteams/scapers": "^0.0.2",
         "chalk": "^5.3.0",
         "child_process": "^1.0.2",
         "cheerio": "^1.0.0-rc.12",
