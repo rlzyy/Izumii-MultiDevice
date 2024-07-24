@@ -1,18 +1,18 @@
-const cooldown = 43200000
-const cooldownn = 180000
-
 export default {
     command: ["mancing"],
     description: "What are you doing? better fishing",
     example: "",
     name: "mancing",
     tags: "rpg",
-    cooldown: cooldown,
+    
+    register: true,
 
     run: async(m, { conn, command, args }) => {
 
 	let user = global.db.users[m.sender]
-	if (new Date - user.lastfishing <= cooldown) return m.reply(`📍 You've fished, then you can do it in  . . .\n🕖 *${((user.lastfishing + cooldown) - new Date()).toTimeString()}*`)
+	let _timers = 43200000 - (new Date() - user.lastclaim);
+    let timers = await func.clockString(_timers);
+    if (new Date() - user.lastfishing > 43200000) {
 	if (user.fishingrod == 0) return m.reply(`Need *${m.prefix}craft* fishingrod first.\n\nYou have :\n━ 🎣 ${user.fishingrod} FishingRod`)
 	let mancing = [
 		{"ikan": 0}, {"ikan": 0}, {"ikan": 0}, {"ikan": 0}, {"ikan": 0}, {"ikan": 0},
@@ -56,12 +56,15 @@ export default {
 		user.cumi		+= mancing[11].ikan
 		user.udang		+= mancing[12].ikan
 		conn.sendMedia(m.chat, gmbrt, '', hsl, m)
-	}, cooldownn)
+	}, 180000)
 					 
 	setTimeout(() => {
 		m.reply('_Im fishing..._')
 	}, 0)
 	user.lastfishing = new Date * 1
 	user.mancingcount += 1
-}
+} else {
+m.reply(`🚩 You've fished, then you can do it in  . . .\n\n[ *${timers}* ]`)
+  }
+ }
 }
