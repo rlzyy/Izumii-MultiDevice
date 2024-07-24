@@ -17,7 +17,8 @@ export default {
     example: "",
     name: "bansos",
     tags: "rpg",
-
+    
+    register: true,
 
     run: async(m, { conn, command, args }) => {
       let u = global.db.users[m.sender];
