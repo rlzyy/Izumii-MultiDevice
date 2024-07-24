@@ -12,7 +12,8 @@ export default {
     example: "",
     name: "adventure",
     tags: "rpg",
-    cooldown: cooldown,
+	
+    register: true,
 
     run: async(m, { conn, command, args }) => {
 	let user = global.db.users[m.sender]
