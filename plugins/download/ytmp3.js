@@ -1,4 +1,4 @@
-import { ytmp3 } from "../../storage/script/yt-core.js";
+import xyz from "@xyzteams/scapers";
 
 export default {
     command: ["ytmp3"],
@@ -11,19 +11,19 @@ export default {
 
     run: async(m, { conn, text }) => {
     try {
-        let Ytdl = await ytmp3(m.text)
+        let Ytdl = await xyz.download.youtube(m.text)
         let dls = "Download audio success"
-        let ytthumb = await (await func.getFile(Ytdl.meta.image)).data
+        let ytthumb = await (await func.getFile(Ytdl.thumbnail)).data
         let doc = {
-            audio: Ytdl.buffer,
+            audio: { url: Ytdl.url },
             mimetype: "audio/mp4",
-            fileName: Ytdl.meta.title,
+            fileName: Ytdl.title,
             contextInfo: {
                 externalAdReply: {
                     showAdAttribution: true,
                     mediaType: 2,
                     mediaUrl: m.text,
-                    title: Ytdl.meta.title,
+                    title: Ytdl.title,
                     body: dls,
                     sourceUrl: m.text,
                     thumbnail: ytthumb
