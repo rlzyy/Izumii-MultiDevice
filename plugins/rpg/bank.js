@@ -7,6 +7,8 @@ export default {
     name: "atm",
     tags: "rpg",
 
+    register: true,
+
     run: async(m, { conn, command, args }) => {
 	let user = global.db.users[m.sender]
 	if (args[0] == 'create') {
