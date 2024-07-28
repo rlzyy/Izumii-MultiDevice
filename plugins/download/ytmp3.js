@@ -11,7 +11,7 @@ export default {
 
     run: async(m, { conn, text }) => {
     try {
-        let Ytdl = await xyz.download.youtube(m.text)
+        let Ytdl = await xyz.download.youtube.ytmp3(m.text)
         let dls = "Download audio success"
         let ytthumb = await (await func.getFile(Ytdl.thumbnail)).data
         let doc = {
