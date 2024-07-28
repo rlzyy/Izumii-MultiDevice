@@ -11,7 +11,7 @@ export default {
 
     run: async(m, { conn, text }) => {
     try {
-        let Ytdl = await xyz.download.youtube(m.text)
+        let Ytdl = await xyz.download.youtube.ytmp4(m.text)
         const video = Ytdl.url
         const title = Ytdl.title
         const duration = Ytdl.duration.formatted
