@@ -1,6 +1,6 @@
 {
     "name": "izumibot",
-    "version": "3.0.5",
+    "version": "4.0.0",
     "description": "Simple WhatsApp Bot Type ESM",
     "main": "system/index.js",
     "type": "module",
