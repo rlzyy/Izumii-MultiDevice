@@ -23,7 +23,7 @@ export default {
 		}
 	} else {
 		if (!user) return m.reply('[!] The user does not exist in the database.')
-		if (user.level < user.level) return m.reply('[!] Can't see because the target level is higher.')
+		if (user.level < user.level) return m.reply('[!] Can t see because the target level is higher.')
 		let name = await conn.getName(m.sender)
 		let anu = `🏦 Assets *${name.replaceAll('\n','')}*\n\n`
 		anu += `*💰 Bank :* ${user.atm}\n`
