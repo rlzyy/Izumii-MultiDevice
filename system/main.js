@@ -30,6 +30,8 @@ import {
   pluginFolder,
   pluginFilter,
 } from "./lib/plugins.js";
+import { connectAuth } from "./utils/schema.js";
+import useMongoAuthState from "./utils/mongoAuth.js";
 
 // Global API Update
 global.API = (name, path = "/", query = {}, apikeyqueryname) => {
@@ -48,6 +50,7 @@ if (global.write_store) store.readFromFile("./storage/store.json");
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
 const question = (text) => new Promise((resolve) => rl.question(text, resolve))
 const database = (new (await import("./lib/database.js")).default())
+const Authentication = await connectAuth();
 
 async function start() {
     process.on("uncaughtException", (err) => console.error(err))
@@ -62,7 +65,12 @@ async function start() {
     }
     
     const msgRetryCounterCache = new NodeCache()
-    const { state, saveCreds } = await baileys.useMultiFileAuthState("./storage/temp/session")
+    let state, saveCreds;
+if (global.mongoAuth) {
+    ({ state, saveCreds } = await useMongoAuthState(Authentication));
+} else {
+    ({ state, saveCreds } = await baileys.useMultiFileAuthState("./storage/temp/session"));
+}
     
     const conn = baileys.default({
         msgRetryCounterMap: {},
@@ -101,6 +109,14 @@ async function start() {
   })
     .then((_) => console.log(chalk.bgBlue('Successfully Obtaining Plugins Files.')))
     .catch(console.error);
+
+      // Session Checking..
+       if (global.mongoAuth == false) {
+if (fs.existsSync("./storage/temp/session/creds.json") && !conn.authState.creds.registered) {
+    console.log(chalk.yellow("-- WARNING: creds.json is broken, please delete it first & try re-pairing --"));
+    process.exit(0);
+  }
+       }
 
     if (!conn.authState.creds.registered) {
         let phoneNumber
@@ -176,8 +192,8 @@ async function start() {
         
         if (connection === "connecting") {
       console.log(`${chalk.bold.green(`Izumii Whatsapp Bot`)}`)
-      console.log(`${chalk.green(`Version: V4`)}`)
       console.log(`${chalk.yellow.bgBlack(`Created By Rulzz.`)}`)
+      console.log(`${chalk.bold.red(`This script is open source, sale and purchase are prohibited!!!`)}`)
         console.log(chalk.blue(`[Is Connecting]`));
       }
      
