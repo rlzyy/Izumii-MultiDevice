@@ -10,7 +10,9 @@ global.wm = "@Irull2nd"
 global.author = "Irull"
 global.packname = "Created Sticker By Izumii BOT"
 global.link = "https://github.com/izumii44"
-global.write_store = false
+global.write_store = false //Recommended True
+global.mongoAuth = false //Recommended true
+global.mongoURL = "" //You must enter the mongodb url if "mongoAuth" Above (true)
 
 global.owner = ["62xxxxx"]
 global.pairingNumber = "62xxxxxx" //isi dengan nomor bot mu
