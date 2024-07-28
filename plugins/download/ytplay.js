@@ -35,7 +35,7 @@ try {
             text: '⏳',
             key: m.key,
           }})
-        let Ytdl = await xyz.download.youtube(req.url)
+        let Ytdl = await xyz.download.youtube.ytmp3(req.url)
         let bodi = "[ Youtube Play ]"
         let ytthumb = await (await func.getFile(Ytdl.thumbnail)).data
         let doc = {
