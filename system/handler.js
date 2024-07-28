@@ -292,8 +292,8 @@ export async function participantsUpdate({ id, participants, action }) {
             break
         case "promote":
         case "demote":
-        	let tekspro = `Selamat @${participants[0].split("@")[0]} atas kenaikan pangkatnya di grup ${metadata.subject} 🥂`
-        	let teksdem = `Sabar yaa @${participants[0].split("@")[0]} atas penurunan pangkatnya di grup ${metadata.subject} 😔`
+        	let tekspro = `Happy @${participants[0].split("@")[0]} for his promotion in the group ${metadata.subject} 🥂`
+        	let teksdem = `Be patient, okay? @${participants[0].split("@")[0]} for his demotion in the group ${metadata.subject} 😔`
 
             if (chat.detect) {
                 if (action == "promote") conn.sendMessage(id, { text: tekspro, mentions: [participants[0]] })
