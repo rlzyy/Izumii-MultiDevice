@@ -1,3 +1,7 @@
+/*
+Created By @Irull2nd Don't Delete Wm!
+*/
+
 import "../../storage/config.js"
 import { MongoClient } from "mongodb";
 import mongoose from "mongoose";
