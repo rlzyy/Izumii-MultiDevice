@@ -1,3 +1,7 @@
+/*
+code from amiruldev readjusted by @irull2nd, don't delete WM!
+*/
+
 import "../../storage/config.js"
 import baileys from "@whiskeysockets/baileys";
 const {proto, initAuthCreds, BufferJSON} = baileys;
