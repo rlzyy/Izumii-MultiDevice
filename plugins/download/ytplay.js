@@ -14,7 +14,7 @@ export default {
             let data = await res[0];
             if (data.duration.seconds > 600) throw "Max duration is 10 minutes";
             await conn.sendMessage(m.chat, {
-                text: *Title:* ${data.title}\nDuration: ${data.duration.timestamp}\nDate Uploaded: ${data.publish ? data.publish : "Not known"}\nViews: ${data.views}\nThumbnail: ${data.thumbnail}\n\n\nDownloading...,
+                text: `*Title:* ${data.title}\nDuration: ${data.duration.timestamp}\nDate Uploaded: ${data.publish ? data.publish : "Not known"}\nViews: ${data.views}\nThumbnail: ${data.thumbnail}\n\n\nDownloading...`,
                 contextInfo: {
                     externalAdReply: {
                         title: "Play Audio",
