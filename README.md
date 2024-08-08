@@ -9,7 +9,7 @@ apt install git ffmpeg curl -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 source ~/.bashrc
 nvm install v22.3.0
-git clone https://github.com/izumii44/Izumii-MultiDevice
+git clone https://github.com/ZephyrShin/Izumii-MultiDevice
 cd Izumii-MultiDevice
 npm install
 ```
@@ -47,7 +47,7 @@ npm run pm2:start
 
 ## Authors
 
-- [Irull2nd](https://github.com/izumii44)
+- [Irull2nd](https://github.com/ZephyrShin)
 
 ## Screenshots
 
@@ -56,7 +56,7 @@ npm run pm2:start
 
 ## License
 
-[MIT](https://raw.githubusercontent.com/Izumii44/Izumii-MultiDevice/master/LICENSE)
+[MIT](https://raw.githubusercontent.com/ZephyrShin/Izumii-MultiDevice/master/LICENSE)
 
 ## Feedback
 
